@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { BackgroundComponent } from './components/background/background.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BackgroundComponent
   ],
   imports: [
     BrowserModule,
