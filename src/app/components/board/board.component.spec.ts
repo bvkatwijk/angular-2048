@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 
 import { BoardComponent } from './board.component';
 import { RowComponent } from '../row/row.component'
+import { TileComponent } from '../tile/tile.component'
 
 describe('BoardComponent', () => {
   let component: BoardComponent;
@@ -15,6 +16,7 @@ describe('BoardComponent', () => {
       declarations: [ 
         BoardComponent,
         RowComponent,
+        TileComponent,
       ]
     })
     .compileComponents();

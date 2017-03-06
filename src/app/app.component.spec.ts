@@ -6,6 +6,7 @@ import { TestBed, async, ComponentFixtureAutoDetect } from '@angular/core/testin
 import { AppComponent } from './app.component';
 import { BoardComponent } from './components/board/board.component'
 import { RowComponent } from './components/row/row.component'
+import { TileComponent } from './components/tile/tile.component'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -14,6 +15,7 @@ describe('AppComponent', () => {
         AppComponent,
         BoardComponent,
         RowComponent,
+        TileComponent,
       ],
       providers: [
         { provide: ComponentFixtureAutoDetect, useValue: true }
