@@ -23,8 +23,31 @@ export class BoardComponent {
     return new RowComponent();
   }
 
-  public handleKey(event: any) {
-    console.log(event);
+  public handleKey(key: string) {
+    switch (key) {
+      case "w": this.up(); break;
+      case "a": this.left(); break;
+      case "s": this.down(); break;
+      case "d": this.right(); break;
+      default:
+        break;
+    }
+  }
+
+  private up() {
+    console.log("Firing UP event");
+  }
+
+  private left() {
+    console.log("Firing LEFT event");
+  }
+
+  private down() {
+    console.log("Firing DOWN event");
+  }
+
+  private right() {
+    console.log("Firing RIGHT event");
   }
 
 }
