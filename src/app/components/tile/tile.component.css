@@ -1,9 +1,9 @@
 .tile {
     float: left;
-    width: 17vw;
-    height: 17vw;
-    margin-left: 2vw;
-    margin-bottom: 2vw;
-    font-size: 9vw;
+    width: 17vh;
+    height: 17vh;
+    margin-left: 2vh;
+    margin-bottom: 2vh;
+    font-size: 9vh;
     text-align: center;
 }
