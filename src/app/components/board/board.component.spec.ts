@@ -35,4 +35,17 @@ describe('BoardComponent', () => {
   it('should have four row elements', () => {
     expect(fixture.debugElement.queryAll(By.css('app-row')).length).toEqual(4);
   });
+
+  it('should detect key presses', () => {
+    spyOn(component, 'handleKey');
+    document.dispatchEvent(createEvent("w"));
+    expect(component.handleKey).toHaveBeenCalled();
+  });
+
+  function createEvent(key: string): KeyboardEvent {
+    var event: KeyboardEvent = document.createEvent('KeyboardEvent');
+    event.initKeyboardEvent("keyup", true, true, window, key, 0, "", false, "");
+    return event;
+  }
+  
 });

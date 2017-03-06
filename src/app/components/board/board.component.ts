@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { RowComponent } from "app/components/row/row.component";
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css'],
   host: {
-    '(document:keydown)': 'handleKey($event.key)'
+    '(document:keyup)': 'handleKey($event.key)'
   }
 })
 export class BoardComponent {
@@ -22,11 +23,7 @@ export class BoardComponent {
     return new RowComponent();
   }
 
-  rowArray() {
-    return new Array(this.rows);
-  }
-
-  handleKey(event: any) {
+  public handleKey(event: any) {
     console.log(event);
   }
 
