@@ -8,14 +8,18 @@ import { Component, OnInit } from '@angular/core';
     '(document:keydown)': 'handleKey($event.key)'
   }
 })
-export class BoardComponent implements OnInit {
-  rows: number;
+export class BoardComponent {
+  rows: RowComponent[];
 
   constructor() {
-    this.rows = 4;
+    this.rows = [];
+    for(var i = 0; i < 4; i++) {
+      this.rows.push(this.createRow());
+    }
   }
 
-  ngOnInit() {
+  private createRow() {
+    return new RowComponent();
   }
 
   rowArray() {
