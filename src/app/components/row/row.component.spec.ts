@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { RowComponent } from './row.component';
+import { TileComponent } from "../tile/tile.component";
 
 describe('RowComponent', () => {
   let component: RowComponent;
@@ -11,7 +12,10 @@ describe('RowComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RowComponent ]
+      declarations: [
+        RowComponent,
+        TileComponent,
+      ]
     })
     .compileComponents();
   }));
@@ -24,5 +28,9 @@ describe('RowComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have four tile elements', () => {
+    expect(fixture.debugElement.queryAll(By.css('app-tile')).length).toEqual(4);
   });
 });

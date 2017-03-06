@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RowComponent implements OnInit {
 
-  constructor() { }
+  tiles: number
+
+  constructor() {
+    this.tiles = 4;
+  }
 
   ngOnInit() {
+  }
+
+  tileArray() {
+    return new Array(this.tiles);
   }
 
 }
