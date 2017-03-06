@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tile.component.css']
 })
 export class TileComponent implements OnInit {
+  value: number
 
-  constructor() { }
+  constructor() {
+    this.value = Math.round(Math.random() * 2) * 2;
+  }
 
   ngOnInit() {
   }
