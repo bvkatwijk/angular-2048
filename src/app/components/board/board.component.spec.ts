@@ -36,9 +36,33 @@ describe('BoardComponent', () => {
     expect(fixture.debugElement.queryAll(By.css('app-row')).length).toEqual(4);
   });
 
-  it('should detect key presses', () => {
+  it('should detect W key presses', () => {
     spyOn(component, 'handleKey');
     document.dispatchEvent(createEvent("w"));
+    expect(component.handleKey).toHaveBeenCalled();
+  });
+
+  it('should detect A key presses', () => {
+    spyOn(component, 'handleKey');
+    document.dispatchEvent(createEvent("a"));
+    expect(component.handleKey).toHaveBeenCalled();
+  });
+
+  it('should detect S key presses', () => {
+    spyOn(component, 'handleKey');
+    document.dispatchEvent(createEvent("s"));
+    expect(component.handleKey).toHaveBeenCalled();
+  });
+
+  it('should detect D key presses', () => {
+    spyOn(component, 'handleKey');
+    document.dispatchEvent(createEvent("d"));
+    expect(component.handleKey).toHaveBeenCalled();
+  });
+
+  it('should not detect other key presses', () => {
+    spyOn(component, 'handleKey');
+    document.dispatchEvent(createEvent("r"));
     expect(component.handleKey).toHaveBeenCalled();
   });
 
