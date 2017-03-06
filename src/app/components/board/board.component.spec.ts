@@ -29,4 +29,8 @@ describe('BoardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have four row elements', () => {
+    expect(fixture.debugElement.queryAll(By.css('app-row')).length).toEqual(4);
+  });
 });

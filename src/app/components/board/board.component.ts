@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
+  rows: number;
 
-  constructor() { }
+  constructor() {
+    this.rows = 4;
+  }
 
   ngOnInit() {
+  }
+
+  rowArray() {
+    return new Array(this.rows);
   }
 
 }
