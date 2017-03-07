@@ -1,23 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TileComponent } from "app/components/tile/tile.component";
+import { Merge } from "app/components/merge/merge";
 
 @Component({
   selector: 'app-row',
   templateUrl: './row.component.html',
-  styleUrls: ['./row.component.css']
+  styleUrls: ['./row.component.css'],
 })
-export class RowComponent implements OnInit {
+export class RowComponent {
+  @Input() values: number[];
 
-  tiles: number
-
-  constructor() {
-    this.tiles = 4;
-  }
-
-  ngOnInit() {
-  }
-
-  tileArray() {
-    return new Array(this.tiles);
+  left() {
+    console.log("Event Left firing on [" + this.values + "]");
+    this.values = Merge.left(this.values);
+    console.log("Event Left finished on " + this);
   }
 
 }
