@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RowComponent } from "app/components/row/row.component";
+import { Merge } from "app/components/merge/merge";
 
 @Component({
   selector: 'app-board',
@@ -10,18 +11,12 @@ import { RowComponent } from "app/components/row/row.component";
   }
 })
 export class BoardComponent {
-  rows: RowComponent[];
-
-  constructor() {
-    this.rows = [];
-    for(var i = 0; i < 4; i++) {
-      this.rows.push(this.createRow());
-    }
-  }
-
-  private createRow() {
-    return new RowComponent();
-  }
+  grid: number[][] = [
+    [0, 0, 0, 2],
+    [0, 0, 0, 2],
+    [0, 0, 0, 2],
+    [0, 0, 0, 2],
+    ];
 
   public handleKey(key: string) {
     switch (key) {
@@ -29,8 +24,7 @@ export class BoardComponent {
       case "a": this.left(); break;
       case "s": this.down(); break;
       case "d": this.right(); break;
-      default:
-        break;
+      default: break;
     }
   }
 
@@ -39,7 +33,9 @@ export class BoardComponent {
   }
 
   private left() {
-    console.log("Firing LEFT event");
+    for(var i = 0; i < this.grid.length; i++) {
+      this.grid[i] = Merge.left(this.grid[i]);
+    }
   }
 
   private down() {
