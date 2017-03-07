@@ -25,10 +25,10 @@ export class BoardComponent implements OnInit {
   public handleKey(key: string) {
     var previous = this.grid.concat();
     switch (key) {
-      case "w": this.up(); break;
-      case "a": this.left(); break;
-      case "s": this.down(); break;
-      case "d": this.right(); break;
+      case "w": this.grid = Merge.upGrid(this.grid); break;
+      case "a": this.grid = Merge.leftGrid(this.grid); break;
+      case "s": this.grid = Merge.downGrid(this.grid); break;
+      case "d": this.grid = Merge.rightGrid(this.grid); break;
       default: break;
     }
     if(!this.equal(this.grid, previous)) {
@@ -46,23 +46,7 @@ export class BoardComponent implements OnInit {
     }
     return true;
   }
-
-  private up() {
-    console.log("Firing UP event");
-  }
-
-  private left() {
-      this.grid = Merge.leftGrid(this.grid);
-  }
-
-  private down() {
-    console.log("Firing DOWN event");
-  }
-
-  private right() {
-      this.grid = Merge.rightGrid(this.grid);
-  }
-
+  
   private addNumber() {
     var nulls: [number, number][] = [];
     for (var i = 0; i < this.grid.length; i++) {

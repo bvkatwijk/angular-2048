@@ -55,7 +55,7 @@ describe('Merge', () => {
                 [2, 4, 8, 0],
             ]);
         });
-        
+
     });
 
     describe('right', () => {
@@ -76,6 +76,60 @@ describe('Merge', () => {
             expect(Merge.right([2, 2, 2, 2])).toEqual([0, 0, 4, 4]);
         });
 
+    });
+
+    describe('transpose', () => {
+
+        it('should convert sample grid correctly', () => {
+            expect(Merge.transpose([
+                [2, 0, 2, 0],
+                [0, 8, 8, 0],
+                [0, 0, 0, 0],
+                [2, 4, 8, 0],
+            ])).toEqual([
+                [2, 0, 0, 2],
+                [0, 8, 0, 4],
+                [2, 8, 0, 8],
+                [0, 0, 0, 0],
+            ]);
+        });
+
+    });
+
+    describe('upGrid', () => {
+
+        it('should merge sample grid correctly', () => {
+            expect(Merge.upGrid([
+                [2, 0, 2, 0],
+                [0, 8, 8, 0],
+                [0, 0, 0, 0],
+                [2, 4, 8, 0],
+            ])).toEqual([
+                [4, 8, 2, 0],
+                [0, 4, 16, 0],
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+            ]);
+        });
+
+    });
+
+    describe('downGrid', () => {
+
+        it('should merge sample grid correctly', () => {
+            expect(Merge.downGrid([
+                [2, 0, 2, 0],
+                [0, 8, 8, 0],
+                [0, 0, 0, 0],
+                [2, 4, 8, 0],
+            ])).toEqual([
+                [0, 0, 0, 0],
+                [0, 0, 0, 0],
+                [0, 8, 2, 0],
+                [4, 4, 16, 0],
+            ]);
+        });
+        
     });
 
 });

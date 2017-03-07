@@ -41,4 +41,23 @@ export class Merge {
         return result;
     }
 
+    static transpose(grid: number[][]) {
+        var result: number[][] = [];
+        grid.forEach(row => result.push(row.concat()));
+        for (var i = 0; i < grid.length; i++) {
+            for (var j = 0; j < grid.length; j++) {
+                result[i][j] = grid[j][i];
+            }
+        }
+        return result;
+    }
+
+    static upGrid(grid: number[][]) {
+        return this.transpose(Merge.leftGrid(this.transpose(grid)));
+    }
+    
+    static downGrid(grid: number[][]) {
+        return this.transpose(Merge.rightGrid(this.transpose(grid)));
+    }
+
 }
