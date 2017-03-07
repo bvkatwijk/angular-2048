@@ -11,7 +11,9 @@ describe('TileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TileComponent ]
+      declarations: [
+        TileComponent,
+      ],
     })
     .compileComponents();
   }));
@@ -19,10 +21,15 @@ describe('TileComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TileComponent);
     component = fixture.componentInstance;
+    component.value = 2;
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have value 2', () => {
+    expect(component.value).toEqual(2);
   });
 });
