@@ -39,7 +39,7 @@ describe('Merge', () => {
         });
 
         it('should change [2, 2, 2, 2] to [0, 0, 4, 4]', () => {
-            expect(Merge.left([2, 2, 2, 2])).toEqual([0, 0, 4, 4]);
+            expect(Merge.right([2, 2, 2, 2])).toEqual([0, 0, 4, 4]);
         });
 
     });
