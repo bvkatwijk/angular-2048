@@ -15,5 +15,10 @@ export class Merge {
         };
         return result;
     }
+    
+
+    static right(row: number[]) {
+        return Merge.left(row.reverse()).reverse();
+    }
 
 }
