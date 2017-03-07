@@ -62,9 +62,7 @@ export class BoardComponent implements OnInit {
   }
 
   private right() {
-    for (var i = 0; i < this.grid.length; i++) {
-      this.grid[i] = Merge.right(this.grid[i]);
-    }
+      this.grid = Merge.rightGrid(this.grid);
   }
 
   private addNumber() {
