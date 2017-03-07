@@ -23,6 +23,7 @@ describe('RowComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(RowComponent);
     component = fixture.componentInstance;
+    component.values = [0, 1, 2, 3];
     fixture.detectChanges();
   });
 
@@ -33,4 +34,5 @@ describe('RowComponent', () => {
   it('should have four tile elements', () => {
     expect(fixture.debugElement.queryAll(By.css('app-tile')).length).toEqual(4);
   });
+  
 });
