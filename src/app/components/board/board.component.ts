@@ -52,9 +52,7 @@ export class BoardComponent implements OnInit {
   }
 
   private left() {
-    for (var i = 0; i < this.grid.length; i++) {
-      this.grid[i] = Merge.left(this.grid[i]);
-    }
+      this.grid = Merge.leftGrid(this.grid);
   }
 
   private down() {

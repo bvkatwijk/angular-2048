@@ -40,6 +40,24 @@ describe('Merge', () => {
 
     });
 
+    describe('leftGrid', () => {
+
+        it('should merge sample grid correctly', () => {
+            expect(Merge.leftGrid([
+                [2, 0, 2, 0],
+                [0, 8, 8, 0],
+                [0, 0, 0, 0],
+                [2, 4, 8, 0],
+            ])).toEqual([
+                [4, 0, 0, 0],
+                [16, 0, 0, 0],
+                [0, 0, 0, 0],
+                [2, 4, 8, 0],
+            ]);
+        });
+        
+    });
+
     describe('right', () => {
 
         it('should not alter [0, 0, 0, 0]', () => {

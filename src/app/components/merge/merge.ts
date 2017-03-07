@@ -21,6 +21,14 @@ export class Merge {
         return result;
     }
 
+    static leftGrid(grid: number[][]) {
+        var result: number[][] = [];
+        for (var i = 0; i < grid.length; i++) {
+            result.push(Merge.left(grid[i]));
+        }
+        return result;
+    }
+
     static right(row: number[]) {
         return Merge.left(row.reverse()).reverse();
     }
