@@ -43,7 +43,9 @@ export class BoardComponent {
   }
 
   private right() {
-    console.log("Firing RIGHT event");
+    for(var i = 0; i < this.grid.length; i++) {
+      this.grid[i] = Merge.right(this.grid[i]);
+    }
   }
 
 }
