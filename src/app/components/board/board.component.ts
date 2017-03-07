@@ -77,9 +77,6 @@ export class BoardComponent implements OnInit {
       }
     }
     var tile = nulls[this.random(nulls.length)];
-    console.debug(tile[0].toString());
-    console.debug((this.grid[tile[0]][tile[1]]).toString());
-
     this.grid[tile[0]][tile[1]] = 2;
   }
 
