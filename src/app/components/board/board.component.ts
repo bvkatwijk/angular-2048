@@ -76,6 +76,10 @@ export class BoardComponent implements OnInit {
         }
       }
     }
+    if(nulls.length == 0) {
+      console.log('Game over!');
+      return;
+    }
     var tile = nulls[this.random(nulls.length)];
     this.grid[tile[0]][tile[1]] = 2;
   }
