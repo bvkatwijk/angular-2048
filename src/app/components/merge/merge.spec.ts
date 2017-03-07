@@ -18,6 +18,22 @@ describe('Merge', () => {
             expect(Merge.left([2, 2, 0, 0])).toEqual([4, 0, 0, 0]);
         });
 
+        it('should change [2, 2, 2, 0] to [4, 2, 0, 0]', () => {
+            expect(Merge.left([2, 2, 2, 0])).toEqual([4, 2, 0, 0]);
+        });
+
+        it('should change [4, 2, 2, 0] to [4, 4, 0, 0]', () => {
+            expect(Merge.left([4, 2, 2, 0])).toEqual([4, 4, 0, 0]);
+        });
+
+        it('should change [0, 2, 2, 0] to [4, 0, 0, 0]', () => {
+            expect(Merge.left([0, 2, 2, 0])).toEqual([4, 0, 0, 0]);
+        });
+
+        it('should change [0, 2, 0, 2] to [4, 0, 0, 0]', () => {
+            expect(Merge.left([0, 2, 0, 2])).toEqual([4, 0, 0, 0]);
+        });
+
         it('should change [2, 2, 2, 2] to [4, 4, 0, 0]', () => {
             expect(Merge.left([2, 2, 2, 2])).toEqual([4, 4, 0, 0]);
         });
