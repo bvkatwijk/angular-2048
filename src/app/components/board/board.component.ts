@@ -10,15 +10,20 @@ import { Merge } from "app/components/merge/merge";
     '(document:keyup)': 'handleKey($event.key)'
   }
 })
-export class BoardComponent {
+export class BoardComponent implements OnInit {
   grid: number[][] = [
-    [0, 0, 0, 2],
-    [0, 0, 0, 2],
-    [0, 0, 0, 2],
-    [0, 0, 0, 2],
-    ];
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0],
+  ];
+
+  ngOnInit(): void {
+    this.addNumber();
+  }
 
   public handleKey(key: string) {
+    var previous = this.grid.concat();
     switch (key) {
       case "w": this.up(); break;
       case "a": this.left(); break;
@@ -26,6 +31,20 @@ export class BoardComponent {
       case "d": this.right(); break;
       default: break;
     }
+    if(!this.equal(this.grid, previous)) {
+      this.addNumber();
+    }
+  }
+
+  private equal(a: number[][], b: number[][]) {
+    for (var i = 0; i < a.length; i++) {
+      for (var j = 0; j < a.length; j++) {
+        if(a[i][j] != b[i][j]) {
+          return false;
+        }
+      }
+    }
+    return true;
   }
 
   private up() {
@@ -33,7 +52,7 @@ export class BoardComponent {
   }
 
   private left() {
-    for(var i = 0; i < this.grid.length; i++) {
+    for (var i = 0; i < this.grid.length; i++) {
       this.grid[i] = Merge.left(this.grid[i]);
     }
   }
@@ -43,9 +62,32 @@ export class BoardComponent {
   }
 
   private right() {
-    for(var i = 0; i < this.grid.length; i++) {
+    for (var i = 0; i < this.grid.length; i++) {
       this.grid[i] = Merge.right(this.grid[i]);
     }
+  }
+
+  private addNumber() {
+    var nulls: [number, number][] = [];
+    for (var i = 0; i < this.grid.length; i++) {
+      for (var j = 0; j < this.grid[0].length; j++) {
+        if(this.grid[i][j]==0) {
+          nulls.push([i, j]);
+        }
+      }
+    }
+    var tile = nulls[this.random(nulls.length)];
+    console.debug(tile[0].toString());
+    console.debug((this.grid[tile[0]][tile[1]]).toString());
+
+    this.grid[tile[0]][tile[1]] = 2;
+  }
+
+  /**
+   * Generate random integer [0, bound)
+   */
+  private random(bound: number) {
+    return Math.floor(Math.random() * bound);
   }
 
 }
