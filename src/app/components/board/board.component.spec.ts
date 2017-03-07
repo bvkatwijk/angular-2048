@@ -13,13 +13,13 @@ describe('BoardComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ 
+      declarations: [
         BoardComponent,
         RowComponent,
         TileComponent,
       ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -36,40 +36,44 @@ describe('BoardComponent', () => {
     expect(fixture.debugElement.queryAll(By.css('app-row')).length).toEqual(4);
   });
 
-  it('should detect W key presses', () => {
-    spyOn(component, 'handleKey');
-    document.dispatchEvent(createEvent("w"));
-    expect(component.handleKey).toHaveBeenCalled();
+  describe('Key Detection', () => {
+
+    it('should detect W key presses', () => {
+      spyOn(component, 'handleKey');
+      document.dispatchEvent(createEvent("w"));
+      expect(component.handleKey).toHaveBeenCalled();
+    });
+
+    it('should detect A key presses', () => {
+      spyOn(component, 'handleKey');
+      document.dispatchEvent(createEvent("a"));
+      expect(component.handleKey).toHaveBeenCalled();
+    });
+
+    it('should detect S key presses', () => {
+      spyOn(component, 'handleKey');
+      document.dispatchEvent(createEvent("s"));
+      expect(component.handleKey).toHaveBeenCalled();
+    });
+
+    it('should detect D key presses', () => {
+      spyOn(component, 'handleKey');
+      document.dispatchEvent(createEvent("d"));
+      expect(component.handleKey).toHaveBeenCalled();
+    });
+
+    it('should not detect other key presses', () => {
+      spyOn(component, 'handleKey');
+      document.dispatchEvent(createEvent("r"));
+      expect(component.handleKey).toHaveBeenCalled();
+    });
+
+    function createEvent(key: string): KeyboardEvent {
+      var event: KeyboardEvent = document.createEvent('KeyboardEvent');
+      event.initKeyboardEvent("keyup", true, true, window, key, 0, "", false, "");
+      return event;
+    }
+
   });
 
-  it('should detect A key presses', () => {
-    spyOn(component, 'handleKey');
-    document.dispatchEvent(createEvent("a"));
-    expect(component.handleKey).toHaveBeenCalled();
-  });
-
-  it('should detect S key presses', () => {
-    spyOn(component, 'handleKey');
-    document.dispatchEvent(createEvent("s"));
-    expect(component.handleKey).toHaveBeenCalled();
-  });
-
-  it('should detect D key presses', () => {
-    spyOn(component, 'handleKey');
-    document.dispatchEvent(createEvent("d"));
-    expect(component.handleKey).toHaveBeenCalled();
-  });
-
-  it('should not detect other key presses', () => {
-    spyOn(component, 'handleKey');
-    document.dispatchEvent(createEvent("r"));
-    expect(component.handleKey).toHaveBeenCalled();
-  });
-
-  function createEvent(key: string): KeyboardEvent {
-    var event: KeyboardEvent = document.createEvent('KeyboardEvent');
-    event.initKeyboardEvent("keyup", true, true, window, key, 0, "", false, "");
-    return event;
-  }
-  
 });
